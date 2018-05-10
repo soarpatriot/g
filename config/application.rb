@@ -2,7 +2,6 @@ require_relative "boot"
 require_relative "api_v1"
 require "grape-swagger"
 
-I18n.enforce_available_locales = false
 
 class ServiceApplication < Grape::API
 

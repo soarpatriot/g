@@ -4,18 +4,18 @@ require "logger"
 require "em-synchrony/activerecord"
 
 case G2.env
-when "production"
-  logger = Logger.new("log/production.log")
-  logger.level = Logger::WARN
-when "development"
-  logger = Logger.new(STDOUT)
-  logger.level = Logger::DEBUG
+  when "production"
+    logger = Logger.new("log/production.log")
+    logger.level = Logger::WARN
+  when "development"
+    logger = Logger.new(STDOUT)
+    logger.level = Logger::DEBUG
 
-  logger.formatter = proc do |severity, datetime, progname, msg|
-    "#{msg}\n"
-  end
-else
-  logger = Logger.new("/dev/null")
+    logger.formatter = proc do |severity, datetime, progname, msg|
+      "#{msg}\n"
+    end
+  else
+    logger = Logger.new("/dev/null")
 end
 
 ActiveSupport.on_load(:active_record) do

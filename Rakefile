@@ -1,16 +1,12 @@
 require "rubygems"
 require "bundler/setup"
-
+require 'em-synchrony/activerecord'
 require 'yaml'
 
 unless ENV["G2_ENV"] == "production"
   require 'rspec/core/rake_task'
-  # require 'ci/reporter/rake/rspec'
-
   RSpec::Core::RakeTask.new(:spec)
-
   task :default => :spec
-  # task :spec => "ci:setup:rspec"
 end
 
 task :environment do
@@ -54,7 +50,7 @@ namespace :db do
   task :migrate => :environment do
     migration_path = ActiveRecord::Migrator.migrations_paths
     version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
-    ActiveRecord::Migrator.migrate migration_path, version
+    ActiveRecord::MigrationContext.new(migration_path).migrate(version)
   end
 
   desc 'Drops the database'
@@ -66,8 +62,6 @@ namespace :db do
 
   desc 'Creates the database'
   task :create do
-    require "active_record"
-    
     env = ENV["G2_ENV"] || "development"
     conf = db_conf[env]
     conf.delete "database"

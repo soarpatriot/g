@@ -1,7 +1,5 @@
-require "rubygems"
-require "bundler/setup"
-
 require "goliath"
+require_relative "config/application"
 
 #Goliath::Request.log_block = proc do |env, response, elapsed_time|
 #  request_params = env.params.collect { |param| param.join(": ") }
@@ -12,19 +10,17 @@ require "goliath"
   #env[Goliath::Request::RACK_LOGGER].info("[#{env['REMOTE_ADDR']}] #{response.status} #{method} #{path} in #{'%.2f' % elapsed_time} ms \n")
 #end
 
-require_relative "config/application"
 
 class Server < Goliath::API
   use Goliath::Rack::Params
 
   def response(env)
     
-    res = ServiceApplication.call env
-    res[1]['Access-Control-Allow-Origin'] = env["HTTP_ORIGIN"]
-    res[1]['Access-Control-Allow-Credentials'] = "true"
-    res[1]['Access-Control-Expose-Headers'] = "X-Page, X-Per-Page, X-Prev-Page, X-Next-Page, X-Total, X-Total-Pages"
+    ServiceApplication.call env
+    #res[1]['Access-Control-Allow-Origin'] = "*"
+    #res[1]['Access-Control-Allow-Credentials'] = "true"
+    #res[1]['Access-Control-Expose-Headers'] = "X-Page, X-Per-Page, X-Prev-Page, X-Next-Page, X-Total, X-Total-Pages"
 
-    res
   end
 
 end

@@ -23,32 +23,8 @@ require 'db'
 
 require 'v1'
 
-
-
-# loading initializers
-Dir.glob("config/initializers/*.rb").each do |initializer|
-  require initializer
-end
-
-
-Dir.glob('app/uploaders/**/*.rb').each do |item|
-  require item
-end
-
-
-Dir.glob('app/models/**/*.rb').each do |item|
-  require item
-end
-
-Dir.glob('app/helpers/**/*.rb').each do |item|
-  require item
-end
-
-Dir.glob('app/entities/**/*.rb').each do |item|
-  require item
-end
-
-Dir.glob('app/apis/**/*.rb').each do |item|
+# load app and config directors
+Dir.glob(["app/**/*.rb", "config/initializers/*.rb", "db/**/*.rb"]).each do |item|
   require item
 end
 
