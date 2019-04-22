@@ -3,9 +3,9 @@ lock '3.10.2'
 set :application, "g"
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1@g'
+set :rvm_ruby_version, '2.3.2@g --create'
 
-set :repo_url, "git@github.com:soarpatriot/g.git"
+set :repo_url, "https://github.com/soarpatriot/g.git"
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :branch, "master"
 

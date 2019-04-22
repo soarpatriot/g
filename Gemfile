@@ -1,4 +1,5 @@
 # source "http://gems.rubyforge.org"
+source 'https://rubygems.org'
 
 # gem "i18n"
 gem "rest-client"
