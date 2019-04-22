@@ -1,4 +1,4 @@
-lock '3.4.0'
+lock '3.10.2'
 
 set :application, "g"
 
