@@ -2,7 +2,7 @@
 set :stage, :production
 set :server_name, "g.dreamreality.cn"
 
-set :node_count, 2
+set :node_count, 1
 
 
 set :branch, "master"
