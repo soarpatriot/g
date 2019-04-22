@@ -1,15 +1,13 @@
 
 set :stage, :production
-set :server_name, "10.230.3.112"
+set :server_name, "g.dreamreality.cn"
 
-set :server_domain_name, "api-commission.wuliusys.com"
-set :node_count, 8
+set :node_count, 2
 
-set :repo_url, 'git@git.rfdoa.cn:java/git-api.git'
 
 set :branch, "master"
-set :deploy_to, "/data/www/gis-api"
+set :deploy_to, "/app/www/g"
 
 set :god_pid, "#{shared_path}/tmp/pids/god.pid"
 
-server fetch(:server_name), user: "deploy", roles: %w{web app db}
+server fetch(:server_name), user: "ubuntu", roles: %w{web app db}

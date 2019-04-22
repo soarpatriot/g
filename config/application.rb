@@ -22,12 +22,12 @@ class ServiceApplication < Grape::API
   end
 
 
-  rescue_from ActiveRecord::RecordNotFound do |e|
-    msg = {
-      error: e.message.gsub(/\ \[.*/, "")
-    }.to_json
-    Rack::Response.new(msg, 404, {"Content-type" => "application/json"}).finish
-  end
+#  rescue_from ActiveRecord::RecordNotFound do |e|
+#    msg = {
+#      error: e.message.gsub(/\ \[.*/, "")
+#    }.to_json
+#    Rack::Response.new(msg, 404, {"Content-type" => "application/json"}).finish
+#  end
 
 
   # paginate per_page: 15
@@ -38,7 +38,7 @@ class ServiceApplication < Grape::API
     error! "Not found! No route mapping to >> #{env["HTTP_HOST"]}/#{env["PATH_INFO"]}", 404
   end
 
-  $host = ENV["AUTH_HOST"] || "http://localhost:9000"
+  $host = ENV["AUTH_HOST"] || "http://0.0.0.0:9000"
 
 end
 

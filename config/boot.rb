@@ -19,7 +19,7 @@ $LOAD_PATH.unshift File.join(root_dir, "config/initializers")
 
 
 require 'g2'
-require 'db'
+# require 'db'
 
 require 'v1'
 

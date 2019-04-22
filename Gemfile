@@ -1,4 +1,4 @@
-source "http://gems.rubyforge.org"
+# source "http://gems.rubyforge.org"
 
 # gem "i18n"
 gem "rest-client"
@@ -9,8 +9,8 @@ gem 'grape-entity'
 gem 'grape-swagger'
 gem 'async-rack', '~> 0.5.1'
 gem 'rack-cors'
-
-gem 'mysql2'
+# gem 'doorkeeper', '~> 4.3.2'
+# gem 'mysql2'
 
 
 #gem 'gretel'
@@ -19,7 +19,7 @@ gem 'god'
 
 gem 'pry'
 
-gem 'activerecord', '~> 5.2.0'
+# gem 'activerecord', '5.2.0'
 gem 'bcrypt'
 
 group :production do

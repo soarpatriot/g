@@ -1,11 +1,11 @@
 lock '3.4.0'
 
-set :application, "gis-api"
+set :application, "g"
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.5@gis-api'
+set :rvm_ruby_version, '2.3.1@g'
 
-set :repo_url, "git@github.com:soarpatriot/gis-api.git"
+set :repo_url, "git@github.com:soarpatriot/g.git"
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :branch, "master"
 
@@ -15,7 +15,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/database.yml config/application.yml }
+# set :linked_files, %w{config/database.yml config/application.yml }
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public}
 
@@ -29,7 +29,7 @@ namespace :deploy do
 
     on roles(:app) do
       within current_path do
-        execute :bundle, "exec god start gis-api"
+        execute :bundle, "exec god start g"
       end
     end
   end
@@ -39,7 +39,7 @@ namespace :deploy do
 
     on roles(:app) do
       within current_path do
-        execute :bundle, "exec god stop gis-api"
+        execute :bundle, "exec god stop g"
       end
     end
   end
@@ -55,15 +55,15 @@ namespace :deploy do
   end
 
 
-  after :updated, :migration do
-    invoke "rvm:hook"
-    on roles(:app) do
-      within release_path do
-        execute :bundle, "exec rake db:migrate"
-      end
-    end
-  end
-
+#  after :updated, :migration do
+#    invoke "rvm:hook"
+#    on roles(:app) do
+#      within release_path do
+#        execute :bundle, "exec rake db:migrate"
+#      end
+#    end
+#  end
+#
 
   task :bundle do
     on roles(:app) do
