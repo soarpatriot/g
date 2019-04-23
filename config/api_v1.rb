@@ -17,7 +17,7 @@ class ApiV1 < Grape::API
     }
   end
 
-  #helpers AccessHelper
+  # helpers HttpHelper
   #helpers ApplicationHelper
 
   mount V1::AuthApi

@@ -31,6 +31,7 @@ end
 
 
 group :development do
+  gem 'pry-coolline'
   gem 'guard-rspec'
   gem 'capistrano'
   gem 'capistrano-bundler'
@@ -38,6 +39,7 @@ group :development do
 end
 
 group :test do
+  gem 'pry-coolline'
   gem 'factory_girl'
   gem 'rspec'
   gem 'ci_reporter'
