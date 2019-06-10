@@ -1,14 +1,6 @@
 require "grape-swagger"
 class ApiV1 < Grape::API
 
-#  use Rack::Cors do
-#    allow do
-#      origins '*'
-#      resource '*', headers: :any, methods: [:get, :put, :post, :options, :delete]
-#    end
-#  end
-#
-#  format :json
   version :v1
 
   get do
