@@ -146,7 +146,7 @@ GEM
     pry-coolline (0.2.5)
       coolline (~> 0.5)
     public_suffix (3.0.3)
-    rack (1.6.11)
+    rack (1.6.12)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-accept-media-types (0.9)
